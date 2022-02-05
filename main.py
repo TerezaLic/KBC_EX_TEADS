@@ -91,15 +91,15 @@ headers={'Authorization': params['#user_token'],
 ######### API CALL : initiate Processing report  #######################
 
 response = requests.post(url, data=json.dumps(body), headers=headers)
-r_json= response.json()
 
 # give user info about status 
-if response.status_code == 200:
-    print ('All goes well. Status = 200')
-else:
-    print ('Problem,status_code=',response.status_code)
+if response.status_code != 200:
+    print ('Status code error:',response.status_code,response.content)
     quit()
+else:
+    print  ('All goes well. Status = 200')
 
+r_json= response.json()
 
 report_id=r_json['id']
 status=r_json['status']
