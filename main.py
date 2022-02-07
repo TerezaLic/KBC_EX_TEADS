@@ -95,7 +95,7 @@ response = requests.post(url, data=json.dumps(body), headers=headers)
 # give user info about status 
 if response.status_code != 200:
     print ('Status code error:',response.status_code,response.content)
-    quit()
+
 else:
     print  ('All goes well. Status = 200')
 
